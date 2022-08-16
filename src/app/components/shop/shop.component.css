@@ -1,0 +1,13 @@
+.layout {
+  height: 100%;
+}
+
+.shop-main {
+  height: 82vh;
+  overflow-y: scroll;
+  overflow-wrap: normal;
+}
+
+.cart-aside {
+  height: 86vh;
+}

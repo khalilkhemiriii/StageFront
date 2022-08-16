@@ -1,0 +1,12 @@
+header {
+  background-color: black;
+  height: 12%;
+}
+
+main {
+  height: 88%;
+}
+
+.layout {
+  height: 100vh;
+}

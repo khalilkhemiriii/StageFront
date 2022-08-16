@@ -1,0 +1,44 @@
+<form *ngIf="!this.shopStateService.isLoggedIn" #loginForm="ngForm" [formGroup]="userDetails">
+
+  <app-error [error]="error" *ngIf="error!==''"></app-error>
+
+
+  <input type="email" placeholder="Enter your email" class="form-control w-auto mb-3" [formControl]="email" />
+  <div *ngIf="(email.dirty || email.touched) &&email.invalid" class="alert alert-info" role="alert">
+    <p *ngIf="email.errors?.required">
+      Email is required!
+    </p>
+    <p *ngIf="email.errors?.pattern">
+      Emails should be email format!
+    </p>
+  </div>
+
+  <input type="password" placeholder="Enter a password" class="form-control w-auto mb-3" [formControl]="password" />
+  <div *ngIf="(password.dirty || password.touched) && password.invalid" class="alert alert-info" role="alert">
+    <p *ngIf="password.errors?.required">
+      Password is required!
+    </p>
+    <p *ngIf="!password.errors?.minLength || !password.errors?.maxLength">
+      Passwords should be 8-12 characters long!
+    </p>
+  </div>
+
+
+
+  <div class="mb-3">
+    <div class="row">
+      <div class="col">
+        <input [disabled]="loginForm.invalid" autocomplete="on"
+          class="btn btn-primary" type="button" (click)="login()" value="Login" />
+      </div>
+      <div class="col">
+        <input class="btn btn-warning" type="button" routerLink="/register" value="Register" />
+      </div>
+    </div>
+  </div>
+</form>
+
+<div *ngIf="this.shopStateService.isLoggedIn">
+  <p class="container">Thank you for logging in, now you can click on <span style="color: #0E6FFD;">Shop Now</span>
+    button to start shopping!</p>
+</div>

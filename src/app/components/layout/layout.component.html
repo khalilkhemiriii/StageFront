@@ -1,0 +1,10 @@
+<div class="layout">
+    <header>
+        <app-header></app-header>
+    </header>
+
+    <main >
+        <app-error [error]="error" *ngIf="error!==''"></app-error>
+        <router-outlet></router-outlet>
+    </main>
+</div>

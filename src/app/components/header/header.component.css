@@ -1,0 +1,17 @@
+.layout {
+  color: white;
+  overflow: hidden;
+}
+
+img {
+  height: 100px;
+  width: 125px;
+}
+
+li {
+    list-style: none;
+}
+
+.logo{
+  cursor: pointer;
+}

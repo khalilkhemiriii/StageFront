@@ -1,0 +1,35 @@
+<div class="layout">
+    <app-error [error]="error" *ngIf="error!==''"></app-error>
+    <div class="d-flex justify-content-between align-items-center row">
+        <!-- Logo -->
+        <img class="col-4 logo" src="../../../assets/favpng_shopping-cart-e-commerce-online-shopping-logo.png" [routerLink]="['/home']" routerLinkActive="router-link-active"  alt="logo">
+
+        <!-- Greeting -->
+        <div class="greeting col-4">
+            <h3 *ngIf="router.url === '/home'">Hello <span *ngIf="this.usersService.userFirstName">
+                    {{this.usersService.userFirstName | titlecase}}</span> <span
+                    *ngIf="!this.usersService.userFirstName">guest</span> !</h3>
+            <!-- Search -->
+            <form
+                *ngIf="router.url !== '/home' && router.url !== '/register'&& router.url !== '/register2' && !this.shopStateService.orderPressed"
+                class="search-wrapper" (submit)="searchProduct()">
+                <div class="input-group">
+                    <input [(ngModel)]="searchInput" class="search-input form-control" type="text" name="search"
+                        placeholder="Search.." />
+                    <button class="btn btn-info" (click)="searchProduct()">Search</button>
+                </div>
+            </form>
+            <!-- Logout button -->
+            <button *ngIf="this.shopStateService.isLoggedIn" class="btn btn-danger mt-2"
+                (click)="logout()">Logout</button>
+        </div>
+
+
+        <!-- Contact info -->
+        <ul class="contact col-4">
+            <li>Contact Us:</li>
+            <li>Email: <span>mohamedkhalil.khemiri@esprit.com</span></li>
+            <li>Phone: <span>+216 22-843-349</span></li>
+        </ul>
+    </div>
+</div>
