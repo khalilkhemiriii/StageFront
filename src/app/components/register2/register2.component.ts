@@ -13,16 +13,16 @@ export class Register2Component implements OnInit {
   public finalStepRegister: FormGroup;
   //Israely cities by population
   public cities: string[] = [
-    'Jerusalem',
-    'Tel Aviv',
-    'Haifa',
-    'Ashdod',
-    'Rishon LeZiyyon',
-    'Petah Tikva',
-    'BeerSheba',
-    'Netanya',
-    'Holon',
-    'Bnei Brak',
+    'Tunis',
+    'Nabeul',
+    'Sousse',
+    'Monastir',
+    'Bizerte',
+    'Sfax',
+    'Kairouen',
+    'Kef',
+    'Tozeur',
+    'Ariana',
   ].sort((a, b) => (a == b ? 0 : a < b ? -1 : 1));
 
   public city: FormControl;

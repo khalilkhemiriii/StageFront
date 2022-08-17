@@ -46,7 +46,7 @@ export class UsersService {
 
     //Change to /users
     return this.http.post<SuccessfulLoginServerResponse>(
-      'https://morning-fjord-26804.herokuapp.com/users',
+      'http://localhost:8080/api/account',
       loginDetails
     );
   }

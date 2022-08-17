@@ -21,9 +21,9 @@ export class LayoutComponent implements OnInit {
 
   ngOnInit(): void {
     //We have just one admin with specific id
-    if (localStorage.getItem('userFirstName') === 'admin') {
+    if (localStorage.getItem('firstName') === 'admin') {
       this.usersService.isAdmin = true;
-    } else if (localStorage.getItem('userFirstName') !== 'admin') {
+    } else if (localStorage.getItem('firstName') !== 'admin') {
       this.usersService.isAdmin = false;
     } else {
       this.usersService.isAdmin = false;

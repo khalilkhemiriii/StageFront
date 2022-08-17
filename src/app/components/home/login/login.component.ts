@@ -19,7 +19,7 @@ export class LoginComponent implements OnInit {
   public password!: FormControl;
 
   public error: string = '';
-  
+
   constructor(
     private usersService: UsersService,
     private router: Router,
@@ -28,12 +28,12 @@ export class LoginComponent implements OnInit {
   ) {
     this.email = new FormControl('', [
       Validators.required,
-      Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$'),
+     // Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$'),
     ]);
 
     this.password = new FormControl('', [
-      Validators.minLength(8),
-      Validators.maxLength(12),
+      Validators.minLength(0),
+      Validators.maxLength(60),
       Validators.required,
     ]);
     this.userDetails = new FormGroup({ email: this.email, password: this.password });
@@ -54,7 +54,9 @@ export class LoginComponent implements OnInit {
   }
 
   login(userId?: number): void {
+    console.log("khalil",userId)
     const loginObservable = this.usersService.login(this.userDetails.value, userId);
+    console.log("khalil",loginObservable)
     loginObservable.subscribe(
       (successfulServerRequestData: SuccessfulLoginServerResponse) => {
         this.usersService.isAdmin = successfulServerRequestData.isAdmin;
